@@ -128,6 +128,8 @@ function cat_game()
             trapdoors_openingcut = trapdoors_openingcut + 1
             doors_openingtime = intro_num
         end
+    else
+        trapdoors_openingcut = 0
     end
     if boss1 == true or boss1 == "fight" then
 

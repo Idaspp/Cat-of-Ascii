@@ -135,12 +135,12 @@ function draw()
     if trapdoors_openingcut > 37 then
         love.graphics.print("\n\n\n\n\n _\n| |\n| |\n| |\n| |\n| |\n| |\n| |\n| |\n| |",cat.x - 70, 110 + the_offset_of_all_things1)
     end
-    if cat.y > 580 then
+    if cat.y > 580 and floor.x2 == 0 then
         flashofawakening = intro_num
         the_offset_of_all_things1 = 200
         cat.y = 200
         trapdoors_openingcut = 0
-        floor.x2 = 9900
+        floor.x2 = 99900
         the_offset_of_all_things = -7500
     elseif trapdoors_openingcut > 53 then
         love.graphics.print("|                    |\n|                    |\n|                    |\n'                    '",cat.x , 432 + the_offset_of_all_things1)

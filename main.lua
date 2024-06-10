@@ -135,7 +135,7 @@ function love.load()
     sidewaysb = {}
     Platform:new(floor)
     floor.x1 = -1000
-    floor.x2 = 25000
+    floor.x2 = 95000
     floor.y = 350
     floor.limit = 900
     Platform:new(bedplatform)
@@ -282,7 +282,7 @@ function love.load()
     cat.moving = false
     cat.canmoveleft = true
     cat.canmoveright = true
-    the_offset_of_all_things = -49
+    the_offset_of_all_things = 0
     the_offset_of_all_things1 = 0
     cat_object_movement1 = true
     gravity = true
@@ -753,7 +753,7 @@ function love.keypressed(key)
                 vastored = 9
                 vent_animation = true
             end
-        elseif stage == "gb" and mbchoice < 3 then
+        elseif stage == "gb" and mbchoice < 2 then
             mbchoice = mbchoice + 1
         end
     end
