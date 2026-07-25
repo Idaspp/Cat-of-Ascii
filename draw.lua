@@ -71,7 +71,7 @@ function draw()
     love.graphics.print("   ___________\n .' _________ '.\n.|_|._______.|_|.    _____\n|      /!\\      |   |+++++\n|P R E S S U R E|___|+\n|______ | ______|+++++\n'       V       '",3000 + the_offset_of_all_things,100 + the_offset_of_all_things1)
     love.graphics.print("      ,_______,\n      .|,.,.,|.\n      '|     |'\n      .|.,.,.|.\n      '|  _  |'\n\\.__.:'  (±)  ':.___./\n|:   '+._ _ _.+'    :|\n|:____.:'' '':._____:|\n/'                  '\\\n",3345 + the_offset_of_all_things,90 + the_offset_of_all_things1)
     if md1.y2 > 0 then
-        love.graphics.print(" _--_--_--_--_--_--_--_\n(     ~~~~~~~ ~~~      )\n )      ~~~~~~~      ( \n(                      )\n )  ~  ~  ~  ~  ~  ~  (\n(   ~  ~  ~  ~  ~  ~   )\n )  @  @  @  @  @  @  (\n(_  _  _  _  _  _  _  _)\n  '' ( :'' '' '' (')''\n     ( ` )._ ..-' `)___\n    (  `   .`  _.-'Do  |\n     (.._.:''-.: | Not |\n                 |Touch|\n                  '''''",2650 + the_offset_of_all_things, 150 + the_offset_of_all_things1)
+        love.graphics.print(" _--_--_--_--_--_--_--_\n(     ~~~~~~~ ~~~      )\n )      ~~~~~~~       (\n(                      )\n )  ~  ~  ~  ~  ~  ~  (\n(   ~  ~  ~  ~  ~  ~   )\n )  @  @  @  @  @  @  (\n(_  _  _  _  _  _  _  _)\n  '' ( :'' '' '' (')''\n     ( ` )._ ..-' `)___\n    (  `   .`  _.-'Do  |\n     (.._.:''-.: | Not |\n                 |Touch|\n                  '''''",2650 + the_offset_of_all_things, 150 + the_offset_of_all_things1)
     end
 
     if md1.y2 > 350 then

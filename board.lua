@@ -21,6 +21,7 @@ function board()
         moving_mountian = moving_mountian - 4
     end
     if moving_mountian < 35 then
+        moving_mountian = 20
         stage = "cat"
         ventsentrylog = true
         vent_animation = false
