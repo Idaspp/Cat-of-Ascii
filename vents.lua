@@ -178,9 +178,35 @@ function vents()
         love.graphics.setColor(0.9,0.9,0.9)
     end
     love.graphics.print("                                       |    |\n              _________________________|    |\n             /                               \\\n            /    ______      ____________     \\\n __________/    /      |    |            \\     \\______\n               /       |    |             \\            \n _______      /        |    |              |     _____\n        |    |                   __________|    |\n        |    |       _____      /               |\n       /    /             \\     |     __________|\n._____/    /         _     \\____|    |____\n'.        /           \\                   \n;________/             \\__________________\n'",65,50)
-    love.graphics.setColor(0,0.9,0)
+    if ventsentrylog == true and not (vent_animation == true and cat.wayfacing == true or vexitanim == false) then
+        if moving_mountian >= 0 and moving_mountian < 5 then
+            love.graphics.setColor(0,0,0)
+        elseif moving_mountian >= 5 and moving_mountian < 10 then
+            love.graphics.setColor(0,0.2,0)
+        elseif moving_mountian >= 10 and moving_mountian < 15 then
+            love.graphics.setColor(0,0.5,0)
+        elseif moving_mountian >= 15 and moving_mountian <= 20 then
+            love.graphics.setColor(0,0.7,0)
+        elseif moving_mountian > 20 then
+            love.graphics.setColor(0,0.9,0)
+        end
+    else
+        love.graphics.setColor(0,0.9,0)
+    end
     if key1[1] == 0 or key1[2] == 0 then
-        love.graphics.print("X", 327, 265)
+        love.graphics.print("X", 320, 265)
+    end
+    if key1[1] == 0 or mbchoice1 ~= 0 then
+        love.graphics.print("X", 565, 50)
+    end
+    if key1[2] == 0 or mbchoice1 ~= 1 then
+        love.graphics.print("X", 555, 312)
+    end
+    if mbchoice1 ~= 0 or mbchoice == 0 then
+        love.graphics.print("X", 370, 190)
+    end
+    if mbchoice1 ~= 1 or mbchoice == 0 then
+        love.graphics.print("X", 700, 175)
     end
     if cat.frame == 0 then
         love.graphics.print(" /\\\n(' ) __\n \\_   _\"|-,__ \n ||/\"\"||/    '\"\"\n --\"  --\"",300,380)

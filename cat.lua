@@ -99,24 +99,16 @@ function cat_game()
             md1.y2 = md1.y2 + 1
         end
     end
-    if cat.x > (2550 + the_offset_of_all_things) and cat.x < (2800 + the_offset_of_all_things) and cat.y >= (340 +the_offset_of_all_things1) then
-        if mboardswitch == false then
-            mboardtimer = intro_num
-            mboardswitch = true
+    if cat.x > (2550 + the_offset_of_all_things) and cat.x < (2800 + the_offset_of_all_things) and jump2 == true and mboardtimer + 10 < intro_num then
+        if doors_openingtime + 1 < intro_num then
+            moving_mountian = moving_mountian - 4
+            doors_openingtime = intro_num
+        end
+        if moving_mountian < 1 then
+            stage = "gb"
+            moving_mountian = 35
         end
 
-        if mboardtimer + 40 < intro_num then
-            if doors_openingtime + 1 < intro_num then
-                moving_mountian = moving_mountian - 4
-                doors_openingtime = intro_num
-            end
-            if moving_mountian < 1 then
-                stage = "gb"
-                moving_mountian = 35
-            end
-        end
-    else
-        mboardswitch = false
     end
     if cat.x - the_offset_of_all_things > 6510 and cat.x - the_offset_of_all_things < 6600 then
         jump = false
@@ -501,7 +493,5 @@ function cat_game()
         cat_object_movement2 = true
     end
 
-    print("STATE", "can_move", cat.can_move, "left", cat.canmoveleft, "right", cat.canmoveright,
-            "jump", jump, "jump2", jump2, "gravity", gravity, 
-            "trapdoors_openingcut", trapdoors_openingcut, "moving_mountian", moving_mountian)
+
 end
