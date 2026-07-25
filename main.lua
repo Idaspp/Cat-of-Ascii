@@ -365,7 +365,7 @@ end
 function love.update(dt)
 
     if stage == "cat" then
-        if love.keyboard.isDown("right") == true and love.keyboard.isDown("space") == false then
+        if love.keyboard.isDown("right") == true and love.keyboard.isDown("space") == false and love.keyboard.isDown("return") == false then
             cat.moving = true
             if intervaltobeused + 0.2 < os.clock() then
                 if cat_object_movement1 == true then
@@ -385,7 +385,7 @@ function love.update(dt)
                     cat.wayfacing = true
                 end
             end
-        elseif love.keyboard.isDown("left") == true and love.keyboard.isDown("space") == false  and cat.canmoveleft == true then
+        elseif love.keyboard.isDown("left") == true and love.keyboard.isDown("space") == false and love.keyboard.isDown("return") == false and cat.canmoveleft == true then
             if intervaltobeused + 0.2 < os.clock() then
                 if cat_object_movement1 == true then
                     if cat.can_move ~= false then
@@ -410,7 +410,7 @@ function love.update(dt)
         end
 
 
-        if cat.canmoveright == true and cat.canmoveleft == true and love.keyboard.isDown("space") == false and love.keyboard.isDown("up") == true and jump == false and jump2 == false and dialouge_num ~= 21 then
+        if cat.canmoveright == true and cat.canmoveleft == true and love.keyboard.isDown("space") == false and love.keyboard.isDown("return") == false and love.keyboard.isDown("up") == true and jump == false and jump2 == false and dialouge_num ~= 21 then
             if intervaltobeused + 0.2 < os.clock() and jump_input2 < 150 then
                 jump_input2 = jump_input2 + 1
             end
@@ -423,7 +423,7 @@ function love.update(dt)
                 end
             end
         end
-        if dialouge_talk ~= true and wall_is_touched() ~= "l" and love.keyboard.isDown("space") == true and love.keyboard.isDown("up") == false and jump == false and jump2 == false and dialouge_num ~= 21 then
+        if dialouge_talk ~= true and wall_is_touched() ~= "l" and (love.keyboard.isDown("space") == true or love.keyboard.isDown("return") == true) and love.keyboard.isDown("up") == false and jump == false and jump2 == false and dialouge_num ~= 21 then
             if w10:is_touched(cat.x,cat.y) == "r" or w10:is_touched(cat.x,cat.y) ~= "r" and wall_is_touched() ~= "r" then
                 if intervaltobeused + 0.2 < os.clock() and jump_input < 150 then
                     jump_input = jump_input + 1
@@ -431,7 +431,7 @@ function love.update(dt)
                 end
             end
         else
-            if jump_input > 40 and love.keyboard.isDown("space") == false and jump2 == false and cat.can_move == true then
+            if jump_input > 40 and love.keyboard.isDown("space") == false and love.keyboard.isDown("return") == false and jump2 == false and cat.can_move == true then
                 if jump_switc2 == true then
                     jump = true
                     cat.y = cat.y - 10
@@ -561,7 +561,7 @@ function love.draw()
 
 end
 function love.keypressed(key)
-    if key == "space" then
+    if key == "space" or key == "return" then
         if dialouge_num == 21 then
             love.event.quit()
         end
@@ -583,7 +583,7 @@ function love.keypressed(key)
                     current_dialouge = dialouge[dialouge_num]
                     dialouge_talk = false
                     dialouge_num = 1
-                    moving_mountian = 24
+                    moving_mountian = 20
                 end
                 if prevention == true then
                     prevention = false

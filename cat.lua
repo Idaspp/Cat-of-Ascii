@@ -501,5 +501,7 @@ function cat_game()
         cat_object_movement2 = true
     end
 
-
+    print("STATE", "can_move", cat.can_move, "left", cat.canmoveleft, "right", cat.canmoveright,
+            "jump", jump, "jump2", jump2, "gravity", gravity, 
+            "trapdoors_openingcut", trapdoors_openingcut, "moving_mountian", moving_mountian)
 end
