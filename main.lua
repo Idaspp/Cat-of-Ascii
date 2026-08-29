@@ -1,5 +1,5 @@
 function love.load()
-    dialouge = {"A long time ago, a traveler was traversing the\nElder Mountains","Halfway through his trip, he encountered a \nterrible storm...","seeking shelter, the traveler found a cave \nand dashed into it","Hello traveller, how does it go?","I have been trapped here for millenia,\nby means of a seal","If thou aids me in a small task, you shall\nhave the cake","Will you aid me in this trifle?","...","No?","do you think you have a choice?","Now listen to me carefully","Very well, now listen to me carefully","The seal that holds me here can be broken, by \nclosing the book in the great hall","For this reason you will inhabit the mind of \na cat","now go and fufill your task","To control the cat, use the left and right arrow\nkeys to move. To jump forwards use the space key.\nTo jump further hold space longer. To jump up use \nthe up arrow key","to navigate through the vents use the arrow keys,\nand to exit press space.","The buttons on the board control what vents are\nopen, to navigate use the arrow keys","You should not be here","That accursed dragon must have sent you ","I am left with only one choice, I send you back \nto the world you came from "}
+    dialouge = {"A long time ago, a traveler was traversing the\nElder Mountains","Halfway through his trip, he encountered a \nterrible storm...","seeking shelter, the traveler found a cave \nand dashed into it","Hello traveller, how does it go?","I have been trapped here for millenia,\nby means of a seal","If thou aids me in a small task, you shall\nhave the cake","Will you aid me in this trifle?","...","No?","do you think you have a choice?","Now listen to me carefully","Very well, now listen to me carefully","The seal that holds me here can be broken, by \nclosing the book in the great hall","For this reason you will inhabit the mind of \na cat","now go and fufill your task","To control the cat, use the left and right arrow\nkeys to move. To jump forwards use the space key.\nTo jump further hold space longer. To jump up use \nthe up arrow key","to navigate through the vents use the arrow keys,\nand to exit press space.","The buttons on the board control what vents are\nopen, to navigate use the arrow keys","You should not be here","That accursed dragon must have sent you ","I am left with only one choice, I send you back \nto the world you came from", "You wake up in the same cave, the birds are\nchirping outside and the storm has passed", "As you look down, you notice a singular hard red\nscale in the palm of your hand"}
     -- dialouge vars
     cstored = nil
     question = false
@@ -82,12 +82,6 @@ function love.load()
     boxtop.x2 = box1.x + 70
     boxtop.y = 275
     boxtop.limit = 1000
-
-
-
-
-
-
 
 
 
@@ -337,6 +331,7 @@ function love.load()
     -- end of cat game vars, for now
 
     require "intro"
+    require "ending"
     require "dragon"
     require "board"
     require "vents"
@@ -448,7 +443,7 @@ function love.update(dt)
         interval1 = os.clock()
         caninterval =false
     end
-    if stage == "intro" or stage == "intro_dragon" or stage == "dragon" or stage == "cat" then
+    if stage == "intro" or stage == "intro_dragon" or stage == "dragon" or stage == "cat" or stage == "ending" then
         if os.clock() >= 0.1 + interval1 then
             intro_num = intro_num + 1
             if dragon_action == "false" then
@@ -485,7 +480,7 @@ function love.draw()
             end
         end
         love.graphics.setFont(gameFont)
-        love.graphics.setColor(0.9,0.9,0.9)
+        --love.graphics.setColor(0.9,0.9,0.9)
         love.graphics.print(" .------~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~------.", 72, 400)
         love.graphics.print("\n/						                           \\", 72, 400)
         love.graphics.print("\n\n|						                           |", 72, 400)
@@ -525,6 +520,8 @@ function love.draw()
     end
     if stage == "intro" then
         intro()
+    elseif stage == "ending" then
+        ending()
     elseif stage == "intro_dragon" or stage == "dragon" then
         dragon()
     elseif stage == "cat" then
@@ -562,10 +559,13 @@ function love.draw()
 end
 function love.keypressed(key)
     if key == "space" or key == "return" then
-        if dialouge_num == 21 then
-            love.event.quit()
+        if dialouge_num == 21 and dialouge_finished == true then
+            intro_num = -10
+            dialouge_talk = false
+            dialouge_switch = true
+            stage = "ending"
         end
-        if dialouge_finished == true and stage ~= "intro" then
+        if dialouge_finished == true and stage ~= "intro" and stage ~= "ending" then
             if space_counter == 0 then
                 space_counter = 1
                 if dialouge_num == 14 then

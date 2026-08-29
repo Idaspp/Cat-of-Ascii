@@ -4,7 +4,12 @@ function intro()
         dialouge_talk = true
         moving_mountian = moving_mountian +   intro_num
         love.graphics.setFont(gameFont)
-        if intro_num == 3 then
+        if intro_num < 3 then
+            current_colourr = 0
+            current_colourb = 0
+            current_coloury = 0
+            love.graphics.setColor(current_colourr,current_colourb,current_coloury)
+        elseif intro_num == 3 then
             current_colourr = 0.2
             current_colourb = 0.2
             current_coloury = 0.2
